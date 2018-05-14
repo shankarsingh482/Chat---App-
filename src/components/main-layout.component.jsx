@@ -1,5 +1,8 @@
 import React from 'react'
 
+import MessagesList from './messages-list.component'
+import NewMessageInput from './new-message-input.component'
+
 /**
  *  Main Layout
  */
@@ -12,12 +15,8 @@ const MainLayout = () => (
       Sidebar
     </aside>
     <section className="main">
-      <div className="messages-list">
-        Messages List
-      </div>
-      <div className="new-message-input">
-        New Message Input
-      </div>
+      <MessagesList />
+      <NewMessageInput onNewMessage={console.log} />
     </section>
   </div>
 )
