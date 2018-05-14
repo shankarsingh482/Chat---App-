@@ -1,4 +1,12 @@
 module.exports = {
+  // Users - Outgoing
   USER_CONNECTED: 'USER_CONNECTED',
   USERS_LIST_UPDATED: 'USERS_LIST_UPDATED',
+
+  // Messages - Incoming
+  NEW_MESSAGE: 'NEW_MESSAGE',
+
+  // Messages - Outgoing
+  NEW_MESSAGE_RECEIVED: 'NEW_MESSAGE_RECEIVED',
+  MESSAGES_LIST_UPDATED: 'MESSAGES_LIST_UPDATED',
 }
