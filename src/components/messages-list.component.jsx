@@ -12,6 +12,8 @@ const MessagesList = ({ activeUser, messages }) => (
         key={message.id}
         className={classNames('message', {
           'message--my-message': message.userId === activeUser.id,
+          'message--normal': message.type === 'normal',
+          'message--thinking': message.type === 'thinking',
         })}
       >
         <span className="message-text">{message.text}</span>
@@ -31,6 +33,10 @@ MessagesList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
+      type: PropTypes.oneOf([
+        'normal',
+        'thinking',
+      ]).isRequired,
       text: PropTypes.string.isRequired,
     }),
   ).isRequired

@@ -2,6 +2,7 @@ import { CREATE_NEW_MESSAGE } from '../constants/internal-action-types.const'
 
 import {
   NEW_MESSAGE,
+
   NEW_USER_NAME,
   REMOVE_LAST_MESSAGE,
 } from '../constants/socket-server-action-types.const'
@@ -10,6 +11,7 @@ import socket from '../socket'
 
 const REMOVE_LAST_MESSAGE_COMMAND = '/oops'
 const SET_USER_NAME_COMMAND = '/nick '
+const NEW_THINKING_MESSAGE_COMMAND = '/think '
 
 export default store => next => action => {
   if (action.type === CREATE_NEW_MESSAGE) {
@@ -29,11 +31,21 @@ export default store => next => action => {
           userName: action.payload.text.substr(SET_USER_NAME_COMMAND.length),
         },
       }))
+    } else if (action.payload.text.startsWith(NEW_THINKING_MESSAGE_COMMAND)) {
+      socket.send(JSON.stringify({
+        type: NEW_MESSAGE,
+        payload: {
+          text: action.payload.text.substr(NEW_THINKING_MESSAGE_COMMAND.length),
+          type: 'thinking',
+          userId: action.payload.userId,
+        },
+      }))
     } else {
       socket.send(JSON.stringify({
         type: NEW_MESSAGE,
         payload: {
           text: action.payload.text,
+          type: 'normal',
           userId: action.payload.userId,
         },
       }))

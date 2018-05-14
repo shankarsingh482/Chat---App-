@@ -91,6 +91,10 @@ html, body {
   background-color: aquamarine;
 }
 
+.message.message--thinking {
+  color: grey;
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   New Message Input - Styles

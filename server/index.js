@@ -84,6 +84,7 @@ server.on('connection', ws => {
 
         messages[newMessageId] = {
           id: newMessageId,
+          type: action.payload.type,
           text: action.payload.text,
           userId: action.payload.userId,
         }
