@@ -12,4 +12,5 @@ module.exports = {
 
   // Commands - Incoming
   NEW_USER_NAME: 'NEW_USER_NAME',
+  REMOVE_LAST_MESSAGE: 'REMOVE_LAST_MESSAGE',
 }

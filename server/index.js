@@ -1,4 +1,5 @@
 const WebSocket = require('ws')
+const R = require('ramda')
 
 const { SOCKET_SERVER_PORT } = require('./configuration')
 
@@ -12,6 +13,7 @@ const {
   MESSAGES_LIST_UPDATED,
 
   NEW_USER_NAME,
+  REMOVE_LAST_MESSAGE,
 } = require('./constants/action-types.const')
 
 /**
@@ -30,6 +32,14 @@ const users = {}
  */
 let messageId = 0
 const messages = {}
+
+/**
+ *  Helpers
+ */
+const findLastMessageByUserId = (messagesArray, userId) => (
+  R.findLast(R.propEq('userId', userId))(messagesArray)
+)
+
 
 /**
  *  Handle Socket Connection
@@ -113,9 +123,31 @@ server.on('connection', ws => {
           },
         })
 
-        console.log('User Name Updated:')
+        console.log('User Name Updated')
         console.log('User:', users[action.payload.userId])
         console.log('Users:', users)
+
+        break
+      }
+
+      case REMOVE_LAST_MESSAGE: {
+        const messagesArray = Object.keys(messages).map(key => messages[key])
+        const lastMessage = findLastMessageByUserId(messagesArray, action.payload.userId)
+
+        if (lastMessage) {
+          delete messages[lastMessage.id]
+
+          broadcastToAll({
+            type: MESSAGES_LIST_UPDATED,
+            payload: {
+              messages,
+            },
+          })
+
+          console.log('Message Removed')
+          console.log('Message:', lastMessage)
+          console.log('Messages:', messages)
+        }
 
         break
       }

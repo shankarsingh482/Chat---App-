@@ -11,3 +11,4 @@ export const MESSAGES_LIST_UPDATED = 'MESSAGES_LIST_UPDATED'
 
 // Commands - Outgoing
 export const NEW_USER_NAME = 'NEW_USER_NAME'
+export const REMOVE_LAST_MESSAGE = 'REMOVE_LAST_MESSAGE'
