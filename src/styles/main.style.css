@@ -62,6 +62,23 @@ html, body {
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  Users List - Styles
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.users-list {
+  padding: 15px 0;
+}
+
+.user {
+  padding: 5px 10px;
+}
+
+.user > strong {
+  font-weight: bold;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Messages List - Styles
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
