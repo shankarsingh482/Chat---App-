@@ -6,8 +6,6 @@ import Application from './application'
 
 import './styles/main.style.css'
 
-import './socket'
-
 /**
  *  Render App
  */

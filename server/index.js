@@ -7,6 +7,10 @@ const server = new WebSocket.Server({ port: SOCKET_SERVER_PORT })
 server.on('connection', ws => {
   console.log('Connection opened...')
 
+  ws.on('message', message => {
+    console.log(message)
+  })
+
   ws.on('close', () => {
     console.log('Connection closed...')
   })
