@@ -6,18 +6,21 @@ import PropTypes from 'prop-types'
  */
 const MessagesList = ({ messages }) => (
   <ul className="messages-list">
-    {messages.map((message, messageIndex) => (
-      <li key={messageIndex}>{message}</li>
+    {messages.map(message => (
+      <li key={message.id}>{message.text}</li>
     ))}
   </ul>
 )
 
 /**
- *  Messages List - Prop Types
+ *  Define Messages List Prop Types
  */
 MessagesList.propTypes = {
   messages: PropTypes.arrayOf(
-    PropTypes.string,
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      text: PropTypes.string.isRequired,
+    }),
   ).isRequired
 }
 

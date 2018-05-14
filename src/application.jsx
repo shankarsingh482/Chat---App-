@@ -2,14 +2,14 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import MainLayout from './components/main-layout.component'
+import ApplicationContainer from './containers/application.container'
 
 /**
  *  Application
  */
 const Application = ({ store }) => (
   <Provider store={store}>
-    <MainLayout />
+    <ApplicationContainer />
   </Provider>
 )
 

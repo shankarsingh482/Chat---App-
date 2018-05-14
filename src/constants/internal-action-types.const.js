@@ -1,6 +1,9 @@
+// Application
 export const INITIALIZE_APP = 'INITIALIZE_APP'
-export const CREATE_NEW_MESSAGE = 'CREATE_NEW_MESSAGE'
 
+// Users
 export const UPDATE_USERS_LIST = 'UPDATE_USERS_LIST'
 
-
+// Messages
+export const CREATE_NEW_MESSAGE = 'CREATE_NEW_MESSAGE'
+export const UPDATE_MESSAGES_LIST = 'UPDATE_MESSAGES_LIST'

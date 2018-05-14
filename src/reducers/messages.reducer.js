@@ -1,11 +1,12 @@
-import { CREATE_NEW_MESSAGE } from '../constants/internal-action-types.const'
+import { INITIALIZE_APP, UPDATE_MESSAGES_LIST } from '../constants/internal-action-types.const'
 
-const initialState = []
+const initialState = {}
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_NEW_MESSAGE:
-      return [...state, action.payload.text]
+    case INITIALIZE_APP:
+    case UPDATE_MESSAGES_LIST:
+      return { ...action.payload.messages }
 
     default:
       return state

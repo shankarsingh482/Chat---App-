@@ -13,7 +13,7 @@ const UsersList = ({ users }) => (
 )
 
 /**
- *  Users List - Prop Types
+ *  Define Users List Prop Types
  */
 UsersList.propTypes = {
   users: PropTypes.arrayOf(
