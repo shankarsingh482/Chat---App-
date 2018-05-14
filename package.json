@@ -9,13 +9,16 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "reset-css": "^3.0.0"
+    "reset-css": "^3.0.0",
+    "ws": "^5.1.1"
   },
   "devDependencies": {
     "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.1.0"
+    "cz-conventional-changelog": "^2.1.0",
+    "dotenv": "^5.0.1"
   },
   "scripts": {
+    "server": "node server",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
