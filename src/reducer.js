@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 
 import application from './reducers/application.reducer'
+import messages from './reducers/messages.reducer'
 
 /**
  *  Create Reducer
@@ -8,6 +9,7 @@ import application from './reducers/application.reducer'
 const createRootReducer = asyncReducers => (
   combineReducers({
     application,
+    messages,
     ...asyncReducers,
   })
 )

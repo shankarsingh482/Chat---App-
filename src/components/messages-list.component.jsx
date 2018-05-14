@@ -1,14 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  *  Messages List
  */
-const MessagesList = () => (
+const MessagesList = ({ messages }) => (
   <ul className="messages-list">
-    <li>Message 1</li>
-    <li>Message 2</li>
+    {messages.map((message, messageIndex) => (
+      <li key={messageIndex}>{message}</li>
+    ))}
   </ul>
 )
+
+MessagesList.propTypes = {
+  messages: PropTypes.arrayOf(
+    PropTypes.string,
+  ).isRequired
+}
 
 /**
  *  Export Messages List
