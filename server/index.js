@@ -10,6 +10,8 @@ const {
 
   NEW_MESSAGE_RECEIVED,
   MESSAGES_LIST_UPDATED,
+
+  NEW_USER_NAME,
 } = require('./constants/action-types.const')
 
 /**
@@ -98,6 +100,26 @@ server.on('connection', ws => {
         break
       }
 
+      case NEW_USER_NAME: {
+        users[action.payload.userId] = {
+          ...users[action.payload.userId],
+          name: action.payload.userName,
+        }
+
+        broadcastToAll({
+          type: USERS_LIST_UPDATED,
+          payload: {
+            users,
+          },
+        })
+
+        console.log('User Name Updated:')
+        console.log('User:', users[action.payload.userId])
+        console.log('Users:', users)
+
+        break
+      }
+
       default:
         console.log('Unknown action:', action)
     }
@@ -128,6 +150,14 @@ const broadcastToSelf = (action, ws) => {
 const broadcastToOthers = (action, ws) => {
   server.clients.forEach(client => {
     if (client.readyState === WebSocket.OPEN && client !== ws) {
+      client.send(JSON.stringify(action))
+    }
+  })
+}
+
+const broadcastToAll = action => {
+  server.clients.forEach(client => {
+    if (client.readyState === WebSocket.OPEN) {
       client.send(JSON.stringify(action))
     }
   })

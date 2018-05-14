@@ -9,4 +9,7 @@ module.exports = {
   // Messages - Outgoing
   NEW_MESSAGE_RECEIVED: 'NEW_MESSAGE_RECEIVED',
   MESSAGES_LIST_UPDATED: 'MESSAGES_LIST_UPDATED',
+
+  // Commands - Incoming
+  NEW_USER_NAME: 'NEW_USER_NAME',
 }
