@@ -22,7 +22,7 @@ server.on('connection', ws => {
       client.send(JSON.stringify({
         type: USER_CONNECTED,
         payload: {
-          user: users[connectedUserId],
+          users,
         },
       }))
     }

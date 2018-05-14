@@ -12,6 +12,9 @@ const MessagesList = ({ messages }) => (
   </ul>
 )
 
+/**
+ *  Messages List - Prop Types
+ */
 MessagesList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.string,

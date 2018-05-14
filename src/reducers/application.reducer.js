@@ -1,4 +1,4 @@
-import { INITIALIZE_APP } from '../constants/action-types.const'
+import { INITIALIZE_APP } from '../constants/internal-action-types.const'
 
 const initialState = {
   initialized: false,

@@ -1,14 +1,28 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  *  Users List
  */
-const UsersList = () => (
+const UsersList = ({ users }) => (
   <ul className="users-list">
-    <li>User 1</li>
-    <li>User 2</li>
+    {users.map(user => (
+      <li key={user.id}>{user.name}</li>
+    ))}
   </ul>
 )
+
+/**
+ *  Users List - Prop Types
+ */
+UsersList.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+}
 
 /**
  *  Export Users List

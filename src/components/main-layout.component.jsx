@@ -1,9 +1,8 @@
 import React from 'react'
 
+import UsersListContainer from '../containers/users-list.container'
 import MessagesListContainer from '../containers/messages-list.container'
 import NewMessageInputContainer from '../containers/new-message-input.container'
-
-import UsersList from './users-list.component'
 
 /**
  *  Main Layout
@@ -14,7 +13,7 @@ const MainLayout = () => (
       <h1>React Redux Chat App</h1>
     </div>
     <aside className="sidebar">
-      <UsersList />
+      <UsersListContainer />
     </aside>
     <section className="main">
       <MessagesListContainer />
