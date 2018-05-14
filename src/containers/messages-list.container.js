@@ -4,6 +4,7 @@ import MessagesList from '../components/messages-list.component'
 
 export default connect(
   state => ({
+    activeUser: state.user,
     messages: Object.keys(state.messages).map(key => state.messages[key]),
   }),
 )(MessagesList)
