@@ -1,4 +1,5 @@
 import React from 'react'
+import { CSSTransitionGroup } from 'react-transition-group'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -10,13 +11,25 @@ const MessagesList = ({ activeUser, messages }) => (
     {messages.map(message => (
       <li
         key={message.id}
-        className={classNames('message', {
+        className={classNames(`message message--${message.type}`, {
           'message--my-message': message.userId === activeUser.id,
-          'message--normal': message.type === 'normal',
-          'message--thinking': message.type === 'thinking',
         })}
       >
-        <span className="message-text">{message.text}</span>
+        <CSSTransitionGroup
+          transitionName={
+            message.userId === activeUser.id
+              ? 'slide-in-from-right'
+              : 'slide-in-from-left'
+          }
+          transitionAppear={true}
+          transitionAppearTimeout={150}
+          transitionEnterTimeout={150}
+          transitionLeaveTimeout={150}
+        >
+          <span className="message-text">
+            {message.text}
+          </span>
+        </CSSTransitionGroup>
       </li>
     ))}
   </ul>
