@@ -73,6 +73,7 @@ server.on('connection', ws => {
         messages[newMessageId] = {
           id: newMessageId,
           text: action.payload.text,
+          userId: action.payload.userId,
         }
 
         broadcastToSelf({

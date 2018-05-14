@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 
+import messageEnricherMiddleware from './middleware/message-enricher.middleware'
 import socketMiddleware from './middleware/socket.middleware'
 
 import reducer from './reducer'
@@ -12,7 +13,7 @@ const initialState = {}
 /**
  *  Middleware
  */
-const middleware = [socketMiddleware]
+const middleware = [messageEnricherMiddleware, socketMiddleware]
 
 /**
  *  Enhancers

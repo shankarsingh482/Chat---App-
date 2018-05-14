@@ -9,6 +9,7 @@ export default store => next => action => {
       type: NEW_MESSAGE,
       payload: {
         text: action.payload.text,
+        userId: action.payload.userId,
       },
     }))
   }
