@@ -121,9 +121,13 @@ html, body {
   opacity: 0.1;
 }
 
-.message.message--highlighted {
+.message.message--highlighted .message-text {
   font-size: 110%;
-  /* TODO: Darken background by 10% */
+  background-color: darken(gainsboro, 10%);
+}
+
+.message.message--highlighted.message--my-message .message-text {
+  background-color: darken(aquamarine, 10%);
 }
 
 

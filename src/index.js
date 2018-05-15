@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 import store from './store'
 import Application from './application'
 
-import './styles/main.style.css'
+import './styles/main.style'
 
 /**
  *  Render App
