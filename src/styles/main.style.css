@@ -121,6 +121,11 @@ html, body {
   opacity: 0.1;
 }
 
+.message.message--highlighted {
+  font-size: 110%;
+  /* TODO: Darken background by 10% */
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   New Message Input - Styles

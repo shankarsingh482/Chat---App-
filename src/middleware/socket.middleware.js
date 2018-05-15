@@ -18,6 +18,7 @@ import socket from '../socket'
 const REMOVE_LAST_MESSAGE_COMMAND = '/oops'
 const SET_USER_NAME_COMMAND = '/nick '
 const NEW_THINKING_MESSAGE_COMMAND = '/think '
+const NEW_HIGHLIGHTED_MESSAGE_COMMAND = '/highlight '
 const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
 
 export default store => next => action => {
@@ -53,6 +54,15 @@ export default store => next => action => {
         payload: {
           text: action.payload.text.substr(NEW_THINKING_MESSAGE_COMMAND.length),
           type: 'thinking',
+          userId: action.payload.userId,
+        },
+      }))
+    } else if (action.payload.text.startsWith(NEW_HIGHLIGHTED_MESSAGE_COMMAND)) {
+      socket.send(JSON.stringify({
+        type: NEW_MESSAGE,
+        payload: {
+          text: action.payload.text.substr(NEW_HIGHLIGHTED_MESSAGE_COMMAND.length),
+          type: 'highlighted',
           userId: action.payload.userId,
         },
       }))

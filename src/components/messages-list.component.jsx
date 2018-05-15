@@ -19,6 +19,7 @@ export default class extends PureComponent {
           'normal',
           'thinking',
           'faded',
+          'highlighted',
         ]).isRequired,
         text: PropTypes.string.isRequired,
       }),
