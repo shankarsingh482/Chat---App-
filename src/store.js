@@ -36,9 +36,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /**
- *  Create Store
+ *  Store
  */
-const store = createStore(
+export default createStore(
   reducer,
   initialState,
   composeEnhancers(
@@ -46,13 +46,3 @@ const store = createStore(
     ...enhancers,
   ),
 )
-
-/**
- *  Prepare Async Reducers
- */
-store.asyncReducers = {}
-
-/**
- *  Export Store
- */
-export default store

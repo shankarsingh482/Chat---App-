@@ -6,27 +6,11 @@ import users from './reducers/users.reducer'
 import messages from './reducers/messages.reducer'
 
 /**
- *  Create Reducer
+ *  Root Reducer
  */
-const createRootReducer = asyncReducers => (
-  combineReducers({
-    application,
-    activeUser,
-    users,
-    messages,
-    ...asyncReducers,
-  })
-)
-
-/**
- *  Inject Reducer
- */
-export const injectReducer = (store, { key, reducer }) => {
-  store.asyncReducers[key] = reducer
-  store.replaceReducer(createRootReducer(store.asyncReducers))
-}
-
-/**
- *  Export Reducer
- */
-export default createRootReducer()
+export default combineReducers({
+  application,
+  activeUser,
+  users,
+  messages,
+})
