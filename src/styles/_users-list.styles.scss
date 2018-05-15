@@ -1,0 +1,20 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  Users List
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.users-list {
+  padding: 15px 0;
+}
+
+.user {
+  padding: 5px 10px;
+}
+
+.user > strong {
+  font-weight: bold;
+}
+
+.user > small {
+  font-size: 0.8em; color: #999999;
+  margin-left: 10px;
+}

@@ -1,0 +1,26 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  New Message Input
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+.new-message-input {
+  position: absolute; overflow: hidden;
+  top: auto; right: 0; bottom: 0; left: 0;
+
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  border-top: 1px solid black;
+}
+
+.new-message-input > textarea {
+  position: absolute;
+  top: 0; left: 0;
+
+  min-height: 100%; min-width: 100%;
+  max-height: 100%; max-width: 100%;
+
+  padding: 5px; box-sizing: border-box;
+
+  border: none; outline: none;
+}
