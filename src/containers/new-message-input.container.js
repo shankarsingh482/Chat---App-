@@ -5,6 +5,9 @@ import createNewMessage from '../actions/create-new-message.action'
 
 import NewMessageInput from '../components/new-message-input.component'
 
+/**
+ *  New Message Input Container
+ */
 export default connect(
   () => ({}),
   dispatch => ({

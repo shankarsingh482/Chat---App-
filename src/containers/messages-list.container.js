@@ -1,10 +1,16 @@
 import { connect } from 'react-redux'
 
+import { getActiveUser } from '../selectors/active-user.selectors'
+import { getMessagesList } from '../selectors/messages.selectors'
+
 import MessagesList from '../components/messages-list.component'
 
+/**
+ *  Messages Container
+ */
 export default connect(
   state => ({
-    activeUser: state.user,
-    messages: Object.keys(state.messages).map(key => state.messages[key]),
+    activeUser: getActiveUser(state),
+    messages: getMessagesList(state),
   }),
 )(MessagesList)

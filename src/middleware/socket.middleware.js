@@ -21,6 +21,9 @@ const NEW_THINKING_MESSAGE_COMMAND = '/think '
 const NEW_HIGHLIGHTED_MESSAGE_COMMAND = '/highlight '
 const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
 
+/**
+ *  Socket Middleware
+ */
 export default store => next => action => {
   if (action.type === CREATE_NEW_MESSAGE) {
 

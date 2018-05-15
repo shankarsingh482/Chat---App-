@@ -57,7 +57,7 @@ server.on('connection', ws => {
   broadcastToSelf({
     type: USER_CONNECTED,
     payload: {
-      user: users[connectedUserId],
+      activeUser: users[connectedUserId],
       users,
       messages,
     },
