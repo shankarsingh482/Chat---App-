@@ -77,6 +77,11 @@ html, body {
   font-weight: bold;
 }
 
+.user > small {
+  font-size: 0.8em; color: #999999;
+  margin-left: 10px;
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Messages List - Styles

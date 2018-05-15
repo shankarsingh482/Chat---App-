@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
  */
 export default class extends PureComponent {
   static propTypes = {
+    onType: PropTypes.func.isRequired,
     onNewMessage: PropTypes.func.isRequired,
   }
 
@@ -13,18 +14,25 @@ export default class extends PureComponent {
     message: '',
   }
 
+  setMessageText = messageText => {
+    this.setState(
+      { message: messageText },
+      () => this.props.onType(this.state.message),
+    )
+  }
+
   handleMessageChangeEvent = event => {
-    this.setState({ message: event.target.value })
+    this.setMessageText(event.target.value)
   }
 
   handleMessageSendEvent = event => {
     event.preventDefault()
 
     this.props.onNewMessage(this.state.message)
-    this.setState({ message: '' })
+    this.setMessageText('')
   }
 
-  handleMessageKeyPressEvent = event => {
+  handleMessageKeyUpEvent = event => {
     if (event.key === 'Enter') {
       this.handleMessageSendEvent(event)
     }
@@ -37,7 +45,7 @@ export default class extends PureComponent {
           placeholder="Start typing..."
           value={this.state.message}
           onChange={this.handleMessageChangeEvent}
-          onKeyPress={this.handleMessageKeyPressEvent}
+          onKeyUp={this.handleMessageKeyUpEvent}
         />
       </div>
     )

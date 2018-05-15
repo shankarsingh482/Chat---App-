@@ -12,6 +12,9 @@ const UsersList = ({ activeUser, users }) => (
           ? <strong>{user.name}</strong>
           : <span>{user.name}</span>
         }
+        {user.id !== activeUser.id && user.typing && (
+          <small>(typing)</small>
+        )}
       </li>
     ))}
   </ul>

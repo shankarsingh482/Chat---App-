@@ -1,6 +1,11 @@
-import { CREATE_NEW_MESSAGE } from '../constants/internal-action-types.const'
+import {
+  SET_USER_TYPING,
+  CREATE_NEW_MESSAGE,
+} from '../constants/internal-action-types.const'
 
 import {
+  USER_TYPING,
+
   NEW_MESSAGE,
 
   NEW_USER_NAME,
@@ -50,6 +55,16 @@ export default store => next => action => {
         },
       }))
     }
+  }
+
+  if (action.type === SET_USER_TYPING) {
+    socket.send(JSON.stringify({
+      type: USER_TYPING,
+      payload: {
+        userId: action.payload.userId,
+        typing: action.payload.typing,
+      },
+    }))
   }
 
   return next(action)

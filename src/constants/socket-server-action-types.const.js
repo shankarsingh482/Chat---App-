@@ -1,3 +1,6 @@
+// Users - Outgoing
+export const USER_TYPING = 'USER_TYPING'
+
 // Users - Incoming
 export const USER_CONNECTED = 'USER_CONNECTED'
 export const USERS_LIST_UPDATED = 'USERS_LIST_UPDATED'

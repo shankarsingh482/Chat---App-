@@ -1,6 +1,7 @@
 module.exports = {
   // Users - Outgoing
   USER_CONNECTED: 'USER_CONNECTED',
+  USER_TYPING: 'USER_TYPING',
   USERS_LIST_UPDATED: 'USERS_LIST_UPDATED',
 
   // Messages - Incoming

@@ -5,6 +5,7 @@ const { SOCKET_SERVER_PORT } = require('./configuration')
 
 const {
   USER_CONNECTED,
+  USER_TYPING,
   USERS_LIST_UPDATED,
 
   NEW_MESSAGE,
@@ -79,6 +80,26 @@ server.on('connection', ws => {
     const action = JSON.parse(message)
 
     switch (action.type) {
+      case USER_TYPING: {
+        users[action.payload.userId] = {
+          ...users[action.payload.userId],
+          typing: action.payload.typing,
+        }
+
+        broadcastToOthers({
+          type: USERS_LIST_UPDATED,
+          payload: {
+            users,
+          },
+        })
+
+        console.log('User Typing')
+        console.log('User:', users[action.payload.userId])
+        console.log('Users:', users)
+
+        break
+      }
+
       case NEW_MESSAGE: {
         const newMessageId = messageId++
 

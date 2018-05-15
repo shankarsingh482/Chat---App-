@@ -3,6 +3,7 @@ export const INITIALIZE_APP = 'INITIALIZE_APP'
 
 // Users
 export const UPDATE_USERS_LIST = 'UPDATE_USERS_LIST'
+export const SET_USER_TYPING = 'SET_USER_TYPING'
 
 // Messages
 export const CREATE_NEW_MESSAGE = 'CREATE_NEW_MESSAGE'
