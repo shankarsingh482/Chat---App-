@@ -21,6 +21,7 @@ export default class extends PureComponent {
           'faded',
           'highlighted',
         ]).isRequired,
+        time: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
       }),
     ).isRequired
@@ -64,6 +65,7 @@ export default class extends PureComponent {
               <span className="message-text">
                 {message.text}
               </span>
+              <span className="message-time">{message.time}</span>
             </CSSTransitionGroup>
           </li>
         ))}

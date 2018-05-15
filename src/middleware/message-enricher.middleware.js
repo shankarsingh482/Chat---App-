@@ -17,6 +17,7 @@ export default store => next => action => {
         ...action.payload,
         text: emojizz(action.payload.text),
         userId: activeUser.id,
+        time: new Date().toISOString(),
       },
     })
   }

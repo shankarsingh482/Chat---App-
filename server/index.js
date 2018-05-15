@@ -108,6 +108,7 @@ server.on('connection', ws => {
           id: newMessageId,
           type: action.payload.type,
           text: action.payload.text,
+          time: action.payload.time,
           userId: action.payload.userId,
         }
 

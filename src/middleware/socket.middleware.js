@@ -57,6 +57,7 @@ export default store => next => action => {
         payload: {
           text: action.payload.text.substr(NEW_THINKING_MESSAGE_COMMAND.length),
           type: 'thinking',
+          time: action.payload.time,
           userId: action.payload.userId,
         },
       }))
@@ -66,6 +67,7 @@ export default store => next => action => {
         payload: {
           text: action.payload.text.substr(NEW_HIGHLIGHTED_MESSAGE_COMMAND.length),
           type: 'highlighted',
+          time: action.payload.time,
           userId: action.payload.userId,
         },
       }))
@@ -75,6 +77,7 @@ export default store => next => action => {
         payload: {
           text: action.payload.text,
           type: 'normal',
+          time: action.payload.time,
           userId: action.payload.userId,
         },
       }))
