@@ -1,3 +1,6 @@
+/**
+ *  Emoji Helper
+ */
 // pun intended :D
 export const emojizz = text => (
   text
