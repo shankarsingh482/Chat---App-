@@ -10,6 +10,7 @@ import {
 
   NEW_USER_NAME,
   REMOVE_LAST_MESSAGE,
+  FADE_LAST_MESSAGE,
 } from '../constants/socket-server-action-types.const'
 
 import socket from '../socket'
@@ -17,13 +18,23 @@ import socket from '../socket'
 const REMOVE_LAST_MESSAGE_COMMAND = '/oops'
 const SET_USER_NAME_COMMAND = '/nick '
 const NEW_THINKING_MESSAGE_COMMAND = '/think '
+const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
 
 export default store => next => action => {
   if (action.type === CREATE_NEW_MESSAGE) {
 
+    console.log(action.payload.text === REMOVE_LAST_MESSAGE_COMMAND)
+
     if (action.payload.text === REMOVE_LAST_MESSAGE_COMMAND) {
       socket.send(JSON.stringify({
         type: REMOVE_LAST_MESSAGE,
+        payload: {
+          userId: action.payload.userId,
+        },
+      }))
+    } else if (action.payload.text === FADE_LAST_MESSAGE_COMMAND) {
+      socket.send(JSON.stringify({
+        type: FADE_LAST_MESSAGE,
         payload: {
           userId: action.payload.userId,
         },

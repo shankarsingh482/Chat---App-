@@ -117,6 +117,10 @@ html, body {
   color: grey;
 }
 
+.message.message--faded {
+  opacity: 0.1;
+}
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   New Message Input - Styles

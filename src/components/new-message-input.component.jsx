@@ -32,7 +32,7 @@ export default class extends PureComponent {
     this.setMessageText('')
   }
 
-  handleMessageKeyUpEvent = event => {
+  handleMessageKeyPressEvent = event => {
     if (event.key === 'Enter') {
       this.handleMessageSendEvent(event)
     }
@@ -45,7 +45,7 @@ export default class extends PureComponent {
           placeholder="Start typing..."
           value={this.state.message}
           onChange={this.handleMessageChangeEvent}
-          onKeyUp={this.handleMessageKeyUpEvent}
+          onKeyPress={this.handleMessageKeyPressEvent}
         />
       </div>
     )

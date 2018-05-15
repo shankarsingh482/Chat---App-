@@ -15,6 +15,7 @@ const {
 
   NEW_USER_NAME,
   REMOVE_LAST_MESSAGE,
+  FADE_LAST_MESSAGE,
 } = require('./constants/action-types.const')
 
 /**
@@ -168,6 +169,28 @@ server.on('connection', ws => {
 
           console.log('Message Removed')
           console.log('Message:', lastMessage)
+          console.log('Messages:', messages)
+        }
+
+        break
+      }
+
+      case FADE_LAST_MESSAGE: {
+        const messagesArray = Object.keys(messages).map(key => messages[key])
+        const lastMessage = findLastMessageByUserId(messagesArray, action.payload.userId)
+
+        if (lastMessage) {
+          messages[lastMessage.id].type = 'faded'
+
+          broadcastToAll({
+            type: MESSAGES_LIST_UPDATED,
+            payload: {
+              messages,
+            },
+          })
+
+          console.log('Message Faded')
+          console.log('Message:', messages[lastMessage.id])
           console.log('Messages:', messages)
         }
 
