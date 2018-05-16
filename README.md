@@ -8,12 +8,6 @@ This project is not intended to be deployed to production.
 It is used for demo purposes only.
 
 
-### Screenshots
-
-![Mobile View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/mobile-view.png)
-![Desktop View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/desktop-view.png)
-
-
 ### Requirements
 
 To run this project without unforseen errors, use: `node v8.9.4` and `npm v6.0.0`
@@ -47,9 +41,23 @@ To start frontend application in development mode, run:
     npm start
 
 
+---
+
+
 ### Thank you :)
 
+
 ---
+
+
+### Screenshots
+
+![Mobile View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/mobile-view.png)
+![Desktop View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/desktop-view.png)
+
+
+---
+
 
 ## License
 
