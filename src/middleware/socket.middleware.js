@@ -26,9 +26,6 @@ const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
  */
 export default store => next => action => {
   if (action.type === CREATE_NEW_MESSAGE) {
-
-    console.log(action.payload.text === REMOVE_LAST_MESSAGE_COMMAND)
-
     if (action.payload.text === REMOVE_LAST_MESSAGE_COMMAND) {
       socket.send(JSON.stringify({
         type: REMOVE_LAST_MESSAGE,
