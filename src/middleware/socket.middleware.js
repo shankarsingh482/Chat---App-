@@ -20,6 +20,7 @@ const SET_USER_NAME_COMMAND = '/nick '
 const NEW_THINKING_MESSAGE_COMMAND = '/think '
 const NEW_HIGHLIGHTED_MESSAGE_COMMAND = '/highlight '
 const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
+const COUNTDOWN_MESSAGE_COMMAND = '/countdown '
 
 /**
  *  Socket Middleware
@@ -64,6 +65,17 @@ export default store => next => action => {
         payload: {
           text: action.payload.text.substr(NEW_HIGHLIGHTED_MESSAGE_COMMAND.length),
           type: 'highlighted',
+          time: action.payload.time,
+          userId: action.payload.userId,
+        },
+      }))
+    } else if (action.payload.text.startsWith(COUNTDOWN_MESSAGE_COMMAND)) {
+      socket.send(JSON.stringify({
+        type: NEW_MESSAGE,
+        payload: {
+          text: action.payload.text.substr(COUNTDOWN_MESSAGE_COMMAND.length),
+          count: 5,
+          type: 'countdown',
           time: action.payload.time,
           userId: action.payload.userId,
         },

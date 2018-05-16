@@ -107,6 +107,7 @@ server.on('connection', ws => {
         messages[newMessageId] = {
           id: newMessageId,
           type: action.payload.type,
+          count: action.payload.count,
           text: action.payload.text,
           time: action.payload.time,
           userId: action.payload.userId,
@@ -220,6 +221,10 @@ server.on('connection', ws => {
     console.log('Users:', users)
   })
 })
+
+/**
+ *  Broadcast Helpers
+ */
 
 const broadcastToSelf = (action, ws) => {
   ws.send(JSON.stringify(action))

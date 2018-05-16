@@ -3,6 +3,8 @@ import { CSSTransitionGroup } from 'react-transition-group'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import CountdownMessage from './countdown-message.component'
+
 /**
  *  Messages List
  */
@@ -20,6 +22,7 @@ export default class extends PureComponent {
           'thinking',
           'faded',
           'highlighted',
+          'countdown',
         ]).isRequired,
         time: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
@@ -38,6 +41,12 @@ export default class extends PureComponent {
   handleScrollToLastMessage = () => (
     this.listWrapperEl.scrollTop = this.listWrapperEl.scrollHeight
   )
+
+  renderCountdownMessage = (message, activeUser) => {
+    return message.userId === activeUser.id
+      ? <a className="message-text" href={message.text} target="_blank">{message.text}</a>
+      : <CountdownMessage count={message.count} url={message.text} />
+  }
 
   render () {
     const { activeUser, messages } = this.props
@@ -63,9 +72,10 @@ export default class extends PureComponent {
                 transitionEnterTimeout={150}
                 transitionLeaveTimeout={150}
               >
-                <span className="message-text">
-                  {message.text}
-                </span>
+                {message.type === 'countdown'
+                  ? this.renderCountdownMessage(message, activeUser)
+                  : <span className="message-text">{message.text}</span>
+                }
                 <span className="message-time">{message.time}</span>
               </CSSTransitionGroup>
             </li>
