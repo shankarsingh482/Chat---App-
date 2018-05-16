@@ -2,11 +2,15 @@
   Messages List
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-.messages-list {
+.messages-list-wrapper {
   position: absolute; overflow-x: hidden; overflow-y: auto;
   top: 0; right: 0; bottom: 200px; left: 0;
 
-  background-color: whitesmoke;
+  background-color: lighten($secondary_color, 10%);
+}
+
+.messages-list {
+  padding: 10px;
 }
 
 .message {
@@ -16,12 +20,12 @@
 .message-text {
   display: inline-block; padding: 8px 10px;
   box-sizing: border-box; max-width: 70%;
-  background-color: gainsboro;
+  background-color: $secondary_color;
   border-radius: 5px;
 }
 
 .message-time {
-  font-size: 70%; color: darken(lightgray, 10%);
+  font-size: 10px; color: $secondary_color;
   display: block; padding: 5px 0;
 }
 
@@ -30,11 +34,11 @@
 }
 
 .message.message--my-message .message-text {
-  background-color: aquamarine;
+  background-color: $primary_color;
 }
 
 .message.message--thinking {
-  color: grey;
+  color: darken($secondary_color, 30%);
 }
 
 .message.message--faded {
@@ -43,9 +47,9 @@
 
 .message.message--highlighted .message-text {
   font-size: 110%;
-  background-color: darken(gainsboro, 10%);
+  background-color: darken($secondary_color, 10%);
 }
 
 .message.message--highlighted.message--my-message .message-text {
-  background-color: darken(aquamarine, 10%);
+  background-color: darken($primary_color, 10%);
 }

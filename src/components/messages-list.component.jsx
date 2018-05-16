@@ -36,40 +36,42 @@ export default class extends PureComponent {
   }
 
   handleScrollToLastMessage = () => (
-    this.listEl.scrollTop = this.listEl.scrollHeight
+    this.listWrapperEl.scrollTop = this.listWrapperEl.scrollHeight
   )
 
   render () {
     const { activeUser, messages } = this.props
 
     return (
-      <ul className="messages-list" ref={component => this.listEl = component}>
-        {messages.map(message => (
-          <li
-            key={message.id}
-            className={classNames(`message message--${message.type}`, {
-              'message--my-message': message.userId === activeUser.id,
-            })}
-          >
-            <CSSTransitionGroup
-              transitionName={
-                message.userId === activeUser.id
-                  ? 'slide-in-from-right'
-                  : 'slide-in-from-left'
-              }
-              transitionAppear={true}
-              transitionAppearTimeout={150}
-              transitionEnterTimeout={150}
-              transitionLeaveTimeout={150}
+      <div className="messages-list-wrapper" ref={component => this.listWrapperEl = component}>
+        <ul className="messages-list">
+          {messages.map(message => (
+            <li
+              key={message.id}
+              className={classNames(`message message--${message.type}`, {
+                'message--my-message': message.userId === activeUser.id,
+              })}
             >
-              <span className="message-text">
-                {message.text}
-              </span>
-              <span className="message-time">{message.time}</span>
-            </CSSTransitionGroup>
-          </li>
-        ))}
-      </ul>
+              <CSSTransitionGroup
+                transitionName={
+                  message.userId === activeUser.id
+                    ? 'slide-in-from-right'
+                    : 'slide-in-from-left'
+                }
+                transitionAppear={true}
+                transitionAppearTimeout={150}
+                transitionEnterTimeout={150}
+                transitionLeaveTimeout={150}
+              >
+                <span className="message-text">
+                  {message.text}
+                </span>
+                <span className="message-time">{message.time}</span>
+              </CSSTransitionGroup>
+            </li>
+          ))}
+        </ul>
+      </div>
     )
   }
 }

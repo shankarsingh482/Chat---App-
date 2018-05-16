@@ -1,5 +1,5 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  Animation - Styles
+  React CSS Transition Animations
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 .slide-in-from-left-enter {
@@ -68,20 +68,18 @@
   transition: all 150ms ease-in-out;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  Pulsate Animation
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 .pulsate {
-  -webkit-animation: pulsate 800ms ease-in-out;
-  -webkit-animation-iteration-count: infinite;
+  animation: pulsate 800ms ease-in-out;
+  animation-iteration-count: infinite;
   opacity: 0.4;
 }
 
-@-webkit-keyframes pulsate {
-  0% {
-      opacity: 0.4;
-  }
-  50% {
-      opacity: 1.0;
-  }
-  100% {
-      opacity: 0.4;
-  }
+@keyframes pulsate {
+  0% { opacity: 0.4; }
+  50% { opacity: 1.0; }
+  100% { opacity: 0.4; }
 }
