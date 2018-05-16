@@ -43,6 +43,7 @@ export default class extends PureComponent {
       <div className="new-message-input">
         <textarea
           placeholder="Start typing..."
+          autoFocus={true}
           value={this.state.message}
           onChange={this.handleMessageChangeEvent}
           onKeyPress={this.handleMessageKeyPressEvent}
