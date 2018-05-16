@@ -4,22 +4,12 @@
 
 .wrapper {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 280px 1fr;
-  grid-template-areas:
-    'header header'
-    'sidebar main';
+  grid-template-areas: 'sidebar main';
   grid-gap: 0;
 
   width: 100%; height: 100%;
-}
-
-.header {
-  grid-area: header;
-
-  text-align: center;
-
-  background-color: darkgray;
 }
 
 .sidebar {

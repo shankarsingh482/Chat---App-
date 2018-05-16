@@ -1,23 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
+import avatar from '../static/incognito.png'
 
 /**
  *  Users List
  */
 const UsersList = ({ activeUser, users }) => (
-  <ul className="users-list">
-    {users.map(user => (
-      <li key={user.id} className="user">
-        {user.id === activeUser.id
-          ? <strong>{user.name}</strong>
-          : <span>{user.name}</span>
-        }
-        {user.id !== activeUser.id && user.typing && (
-          <small>(typing)</small>
-        )}
-      </li>
-    ))}
-  </ul>
+  <div className="users-list-wrapper">
+    <h3>Active users</h3>
+    <ul className="users-list">
+      {users.map(user => (
+        <li
+          key={user.id}
+          className={classNames('user', {
+            'user--me': user.id === activeUser.id
+          })}
+        >
+          <div className="user-avatar">
+            <img alt="avatar" src={avatar} />
+          </div>
+          <div className="user-name">
+            {user.name}
+          </div>
+          {user.id !== activeUser.id && user.typing && (
+            <div className="user-typing pulsate">
+              typing...
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
 )
 
 /**

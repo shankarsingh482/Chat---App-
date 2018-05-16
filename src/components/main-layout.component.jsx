@@ -14,9 +14,6 @@ const MainLayout = ({ applicationReady }) => (
   applicationReady
     ? (
       <div className="wrapper">
-        <div className="header">
-          <h1>React Redux Chat App</h1>
-        </div>
         <aside className="sidebar">
           <UsersListContainer />
         </aside>
