@@ -47,7 +47,7 @@ export default class extends PureComponent {
       <div className="message-text">
         {this.state.renderMessageAsLink
           ? (
-            <a className="message-text" href={this.state.message} target="_blank">
+            <a href={this.state.message} target="_blank">
               {this.state.message}
             </a>
           )

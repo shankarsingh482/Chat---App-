@@ -20,7 +20,7 @@ const SET_USER_NAME_COMMAND = '/nick '
 const NEW_THINKING_MESSAGE_COMMAND = '/think '
 const NEW_HIGHLIGHTED_MESSAGE_COMMAND = '/highlight '
 const FADE_LAST_MESSAGE_COMMAND = '/fadelast'
-const COUNTDOWN_MESSAGE_COMMAND = '/countdown '
+const COUNTDOWN_MESSAGE_COMMAND = /^\/countdown\s\d+\s(http[s]?:\/\/(www\.)?|ftp:\/\/(www\.)?|www\.){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)$/
 
 /**
  *  Socket Middleware
@@ -69,12 +69,14 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
-    } else if (action.payload.text.startsWith(COUNTDOWN_MESSAGE_COMMAND)) {
+    } else if (COUNTDOWN_MESSAGE_COMMAND.test(action.payload.text)) {
+      const partials = action.payload.text.split(' ')
+
       socket.send(JSON.stringify({
         type: NEW_MESSAGE,
         payload: {
-          text: action.payload.text.substr(COUNTDOWN_MESSAGE_COMMAND.length),
-          count: 5,
+          text: partials[2],
+          count: Number(partials[1]),
           type: 'countdown',
           time: action.payload.time,
           userId: action.payload.userId,
