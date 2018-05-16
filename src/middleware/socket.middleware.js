@@ -34,6 +34,7 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
+
     } else if (action.payload.text === FADE_LAST_MESSAGE_COMMAND) {
       socket.send(JSON.stringify({
         type: FADE_LAST_MESSAGE,
@@ -41,6 +42,7 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
+
     } else if (action.payload.text.startsWith(SET_USER_NAME_COMMAND)) {
       socket.send(JSON.stringify({
         type: NEW_USER_NAME,
@@ -49,6 +51,7 @@ export default store => next => action => {
           userName: action.payload.text.substr(SET_USER_NAME_COMMAND.length),
         },
       }))
+
     } else if (action.payload.text.startsWith(NEW_THINKING_MESSAGE_COMMAND)) {
       socket.send(JSON.stringify({
         type: NEW_MESSAGE,
@@ -59,6 +62,7 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
+
     } else if (action.payload.text.startsWith(NEW_HIGHLIGHTED_MESSAGE_COMMAND)) {
       socket.send(JSON.stringify({
         type: NEW_MESSAGE,
@@ -69,6 +73,7 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
+
     } else if (COUNTDOWN_MESSAGE_COMMAND.test(action.payload.text)) {
       const partials = action.payload.text.split(' ')
 
@@ -82,6 +87,7 @@ export default store => next => action => {
           userId: action.payload.userId,
         },
       }))
+
     } else {
       socket.send(JSON.stringify({
         type: NEW_MESSAGE,
