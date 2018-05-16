@@ -24,11 +24,16 @@ const UsersList = ({ activeUser, users }) => (
           <div className="user-name">
             {user.name}
           </div>
-          {user.id !== activeUser.id && user.typing && (
-            <div className="user-typing pulsate">
-              typing...
-            </div>
-          )}
+          <div
+            className={classNames('user-typing', {
+              pulsate: user.id !== activeUser.id && user.typing
+            })}
+          >
+            {user.id !== activeUser.id && user.typing
+              ? 'typing...'
+              : 'online'
+            }
+          </div>
         </li>
       ))}
     </ul>

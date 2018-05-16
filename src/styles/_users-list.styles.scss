@@ -7,22 +7,43 @@
   background-color: $primary_color;
 
   > h3 {
-    font-size: 12px; letter-spacing: 0px;
+    font-size: 12px; line-height: 18px; letter-spacing: 0px;
     color: lighten($primary_color, 30%); text-transform: uppercase;
 
-    padding: 100px 15px 10px;
+    padding: 10px 15px 2px;
+
     background-color: darken($primary_color, 5%);
+  }
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    > h3 {
+      padding: 100px 15px 10px;
+    }
   }
 }
 
 .users-list {
-  padding: 25px 0;
+  position: absolute; width: 100%;
+  white-space: nowrap; overflow-x: scroll;
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    white-space: nowrap; overflow-x: auto;
+    padding: 25px 0;
+  }
 }
 
 .user {
-  padding: 20px 15px 10px; height: 40px;
-  border-bottom: 1px solid darken($primary_color, 5%);
+  display: inline-block;
+  padding: 10px 25px 10px 10px;
+  height: 30px; min-width: 120px;
   transition: background-color 300ms ease-in-out;
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    display: block;
+    padding: 20px 15px 10px; height: 40px;
+
+    border-bottom: 1px solid darken($primary_color, 5%);
+  }
 }
 
 .user.user--me {
@@ -36,7 +57,7 @@
 .user-avatar {
   position: relative; overflow: hidden;
   float: left;
-  width: 40px; height: 40px; box-sizing: border-box;
+  width: 30px; height: 30px; box-sizing: border-box;
 
   background-color: lighten($primary_color, 50%);
   border: 1px solid darken($primary_color, 10%); border-radius: 50%;
@@ -44,17 +65,32 @@
   > img {
     width: 100%; height: 100%;
   }
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    width: 40px; height: 40px; box-sizing: border-box;
+  }
 }
 
 .user-name {
-  font-size: 16px; line-height: 25px; font-weight: 300;
+  font-size: 14px; line-height: 18px; font-weight: 300;
   color: lighten($primary_color, 50%);
 
-  margin-left: 40px; padding-left: 10px;
+  margin-left: 30px; padding-left: 10px;
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    font-size: 16px; line-height: 25px;
+    margin-left: 40px; padding-left: 10px;
+  }
 }
 
 .user-typing {
-  font-size: 12px; line-height: 15px; font-weight: 300; color: lighten($primary_color, 40%);
+  font-size: 12px; line-height: 12px; font-weight: 300;
+  color: lighten($primary_color, 40%);
 
-  margin-left: 40px; padding-left: 10px;
+  margin-left: 30px; padding-left: 10px;
+
+  @media screen and (min-width: $mobile_breakpoint) {
+    font-size: 12px; line-height: 15px;
+    margin-left: 40px; padding-left: 10px;
+  }
 }
