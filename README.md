@@ -1,12 +1,6 @@
 # React Redux Chat App
 > React Redux Chat Application
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
-### About
-This project is not intended to be deployed to production.
-It is used for demo purposes only.
-
 
 ### Requirements
 
@@ -47,19 +41,3 @@ To start frontend application in development mode, run:
 ### Thank you :)
 
 
----
-
-
-### Screenshots
-
-![Mobile View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/mobile-view.png)
-![Desktop View](https://raw.githubusercontent.com/bulicmatko/react-redux-chat-app/master/desktop-view.png)
-
-
----
-
-
-## License
-
-Copyright (c) 2018 [Matko Bulic](mailto:bulicmatko@gmail.com)  
-Licensed under the **MIT** License
